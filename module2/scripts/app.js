@@ -44,11 +44,11 @@
 
     function getPrePopulatedShoppingList() {
       var items = [
-                    { name : "Milk", quantity : 2.1, bought: false }
-                    , { name : "Cookie", quantity : 2.1, bought: false }
-                    , { name : "Coffee", quantity : 2.2, bought: false }
-                    , { name : "Ice cream", quantity : 2.6, bought: false }
-                    , { name : "Chocolate", quantity : 2.1, bought: false }
+                    { name : "Milk", quantity : 1, bought: false }
+                    , { name : "Cookie", quantity : 18, bought: false }
+                    , { name : "Coffee", quantity : 1, bought: false }
+                    , { name : "Ice cream", quantity : 1, bought: false }
+                    , { name : "Chocolate", quantity : 10, bought: false }
                   ];
       return items;
     }
