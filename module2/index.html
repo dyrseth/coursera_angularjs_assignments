@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/master.css">
+  </head>
+  <body ng-app="ShoppingListCheckOff">
+    <div class="container">
+      <h1>Shopping List Check Off</h1>
+      <div class="row">
+      <!-- To Buy List -->
+        <div class="col-md-6" ng-controller="ToBuyController as toBuy">
+          <h2>To Buy:</h2>
+          <ul>
+            <li ng-repeat="item in toBuy.shoppingList | filter : { bought: false }">
+              Buy {{item.quantity}} {{item.name}}
+              <button ng-click="toBuy.itemBought(item)" class="btn btn-default">
+                <span class="glyphicon glyphicon-ok text-success"></span> Bought
+              </button>
+            </li>
+          </ul>
+          <div class="emptyMessage" ng-if="!(toBuy.shoppingList | filter : { bought : false }).length">Everything is bought!</div>
+        </div>
+
+        <!-- Already Bought List -->
+        <div class="col-md-6" ng-controller="AlreadyBoughtController as alreadyBought">
+          <h2>Already Bought:</h2>
+          <ul>
+            <li ng-repeat="item in alreadyBought.shoppingList | filter : { bought : true }">
+              Bought {{item.quantity}} {{item.name}}
+              <button ng-click="alreadyBought.itemBought(item)" class="btn btn-default">
+                <span class="glyphicon glyphicon-remove text-danger"></span> Remove
+              </button>
+            </li>
+          </ul>
+          <div class="emptyMessage" ng-if="!(alreadyBought.shoppingList | filter : { bought : true }).length">Nothing bought yet.</div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="/scripts/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </body>
+</html>
